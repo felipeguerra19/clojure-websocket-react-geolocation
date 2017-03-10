@@ -4,12 +4,16 @@
       <pattern>%date{HH:mm:ss.SSS} %-5level [%logger] \(%thread\) %message%n</pattern>
     </encoder>
   </appender>
-  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-    <!-- "application-name" is a variable -->
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <File>/tmp/clojure-websocket-react-geolocation.log</File>
-    <layout class="ch.qos.logback.classic.PatternLayout">
-      <Pattern>[%d][%thread][%p] %c - %m%n</Pattern>
-    </layout>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+     <fileNamePattern>clojure-websocket-react-geolocation.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>10</maxHistory>
+      <totalSizeCap>1GB</totalSizeCap>
+   </rollingPolicy>
+    <encoder>
+      <Pattern>[%d][%thread][%p][%c] %m%n</Pattern>
+    </encoder>
   </appender>
   <root level="INFO">
     <appender-ref ref="FILE"/>
