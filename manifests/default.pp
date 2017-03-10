@@ -34,18 +34,19 @@ vcsrepo { "/app/src/":
     revision => 'master',
 }
 
-exec{'retrieve_leiningen':
+exec {'retrieve_leiningen':
   command => "/usr/bin/wget -q https://raw.github.com/technomancy/leiningen/stable/bin/lein -O /app/clojure/lein/bin/lein",
   creates => "/app/clojure/lein/bin/lein",
 }
 
-file{'/app/clojure/lein/bin/lein':
+file {'/app/clojure/lein/bin/lein':
   mode => 0755,
   require => Exec["retrieve_leiningen"],
 }
 
-file{"/tmp/jstatd.all.policy":
+file {"/tmp/jstatd.all.policy":
   ensure => file,
+  replace => 'no',
   content => $jstatd_policy,
   owner  => 'vagrant',
   group  => 'vagrant',
@@ -54,4 +55,17 @@ file{"/tmp/jstatd.all.policy":
 file { "/usr/local/bin/lein": 
   ensure => symlink,
   target => '/app/clojure/lein/bin/lein',
+}
+
+file {"/app/src/start.sh":
+  ensure => present,
+  replace => 'no', 
+  owner  => 'vagrant',
+  group  => 'vagrant',
+  mode   => '0777',
+}
+
+exec {"start_app":
+  command => "sh start.sh",
+  path => "/app/src/",
 }
