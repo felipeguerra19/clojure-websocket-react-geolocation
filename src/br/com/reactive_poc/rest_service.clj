@@ -1,5 +1,6 @@
 (ns br.com.reactive-poc.rest-service
   (:require 
+    [clojure.tools.logging :as log]
     [immutant.web             :as web]
     [immutant.web.async       :as async]
     [immutant.web.middleware  :as web-middleware]
@@ -17,6 +18,7 @@
   :on-close   (fn [channel {:keys [code reason]}]
     (println "close code:" code "reason:" reason))
   :on-message (fn [ch m]
+    (log/info "Async Request:" m)            
     (async/send! ch (apply str (reverse m))))}
 )
 

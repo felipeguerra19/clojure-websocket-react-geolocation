@@ -1,5 +1,7 @@
 include apt
 
+$jstatd_policy = "grant codebase \"file:\${java.home}/../lib/tools.jar\" { permission java.security.AllPermission; };"
+
 package { 'git-core':
   ensure => installed,
 }
@@ -40,6 +42,13 @@ exec{'retrieve_leiningen':
 file{'/app/clojure/lein/bin/lein':
   mode => 0755,
   require => Exec["retrieve_leiningen"],
+}
+
+file{"/tmp/jstatd.all.policy":
+  ensure => file,
+  content => $jstatd_policy,
+  owner  => 'vagrant',
+  group  => 'vagrant',
 }
 
 file { "/usr/local/bin/lein": 

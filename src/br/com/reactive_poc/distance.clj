@@ -1,4 +1,7 @@
-(ns br.com.reactive-poc.distance)
+(ns br.com.reactive-poc.distance
+  (:require 
+    [clojure.tools.logging :as log])
+   (:gen-class))
 
 (def earth-radius-km 6372.795477598)
 
@@ -6,6 +9,7 @@
     "Calcula distância entre duas coordenadas geográficas em metros"
     ([source to]
         {:pre [every? (every-pred map? #(contains? % :lat) #(contains? % :lng)) [source to]]}
+        (log/info "Distance from " (:source/lat source) "," (:source/lng source) " to " (:to/lat to) "," (:to/lng to))
         (let [lat1 (Math/toRadians (:source/lat source))
               lng1 (Math/toRadians (:source/lng source))
               lat2 (Math/toRadians (:to/lat to))

@@ -18,6 +18,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.network :forwarded_port, guest: 8001, host: 8010
   config.vm.network :forwarded_port, guest: 8002, host: 8020
+  config.vm.network :forwarded_port, guest: 8888, host: 8888
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -31,7 +32,8 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.11.180"
+  config.vm.network "private_network", ip: "192.168.100.100"
+  #config.vm.network "private_network", type: "dhcp"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -76,8 +78,8 @@ Vagrant.configure("2") do |config|
     apt-get update
     echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections && echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
     apt-get install -q -y oracle-java8-installer --fix-missing
-    puppet module install puppetlabs/vcsrepo
-    puppet module install puppetlabs/apt
+    #puppet module install puppetlabs/vcsrepo
+    #puppet module install puppetlabs/apt
   SHELL
   
   config.vm.provision "puppet" do |puppet|
