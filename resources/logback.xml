@@ -7,7 +7,7 @@
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <File>/tmp/clojure-websocket-react-geolocation.log</File>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-     <fileNamePattern>clojure-websocket-react-geolocation.%d{yyyy-MM-dd}.log</fileNamePattern>
+     <fileNamePattern>/tmp/clojure-websocket-react-geolocation.%d{yyyy-MM-dd}.log</fileNamePattern>
       <maxHistory>10</maxHistory>
       <totalSizeCap>1GB</totalSizeCap>
    </rollingPolicy>

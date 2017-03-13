@@ -34,9 +34,9 @@
     (->
       (web-middleware/wrap-session {:timeout 20})
       (web-middleware/wrap-websocket websocket-callbacks))
-    (merge {"host" "0.0.0.0", "port" 8002, "path" "/geolocation/async"} args))
+    (merge {"host" "127.0.0.1", "port" 8002, "path" "/geolocation/async"} args))
   (web/run
     (-> routes
       (web-middleware/wrap-session {:timeout 20}))
-    (merge {"host" "0.0.0.0", "port" 8001, "path" "/geolocation"} args))
+    (merge {"host" "127.0.0.1", "port" 8001, "path" "/geolocation"} args))
 )

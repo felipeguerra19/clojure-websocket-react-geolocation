@@ -66,6 +66,6 @@ file {"/app/src/start.sh":
 }
 
 exec {"start_app":
-  command => "sh start.sh",
+  command => "./start.sh",
   path => "/app/src/",
 }

@@ -1,4 +1,4 @@
-(defproject br.com.reactive-poc/rest-service "1.0.0-SNAPSHOT"
+(defproject br.com.reactive-poc/clojure-websocket-react-geolocation "1.0.0-SNAPSHOT"
   :description "Projeto que define os microservices reativos para a POC"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -9,5 +9,6 @@
                  [compojure "1.1.8"]
                  [ring/ring-core "1.3.0"]
                  [environ "1.0.0"]]
+  :aot [br.com.reactive-poc.rest-service]
   :main br.com.reactive-poc.rest-service
 )
