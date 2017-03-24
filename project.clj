@@ -8,7 +8,8 @@
                  [org.immutant/web "2.1.6"]
                  [compojure "1.1.8"]
                  [ring/ring-core "1.3.0"]
-                 [environ "1.0.0"]]
+                 [environ "1.0.0"]
+                 [org.clojure/data.json "0.2.6"]]
   :aot [br.com.reactive-poc.rest-service]
   :main br.com.reactive-poc.rest-service
 )

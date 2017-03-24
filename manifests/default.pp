@@ -7,7 +7,7 @@ package { 'git-core':
 }
 
 package { 'git':
-    ensure => installed,
+  ensure => installed,
 }
 
 file { '/app/src/':
@@ -17,8 +17,25 @@ file { '/app/src/':
   mode   => '0750',
 }
 
+file { '/app/clojure':
+  ensure => 'directory',
+  recurse => true,
+  owner  => 'vagrant',
+  group  => 'vagrant',
+  mode   => '0750',
+}
+
+file { '/app/clojure/lein':
+  ensure => 'directory',
+  recurse => true,
+  owner  => 'vagrant',
+  group  => 'vagrant',
+  mode   => '0750',
+}
+
 file { '/app/clojure/lein/bin':
   ensure => 'directory',
+  recurse => true,
   owner  => 'vagrant',
   group  => 'vagrant',
   mode   => '0750',
@@ -68,4 +85,5 @@ file {"/app/src/start.sh":
 exec {"start_app":
   command => "./start.sh",
   path => "/app/src/",
+  returns => 1,
 }

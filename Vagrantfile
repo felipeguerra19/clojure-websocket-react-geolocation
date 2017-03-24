@@ -18,7 +18,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.network :forwarded_port, guest: 8001, host: 8010
   config.vm.network :forwarded_port, guest: 8002, host: 8020
-  config.vm.network :forwarded_port, guest: 8888, host: 8888
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -32,7 +31,7 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.100.100"
+  #config.vm.network "private_network", ip: "192.168.100.100"
   #config.vm.network "private_network", type: "dhcp"
 
   # Create a public network, which generally matched to bridged network.
@@ -44,7 +43,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder ".", "/home/vagrant/clojure"
+  config.vm.synced_folder ".", "/home/vagrant/app"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -72,12 +71,12 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    apt-get update
-    apt-get install -y git
-    add-apt-repository ppa:webupd8team/java
-    apt-get update
-    echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections && echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
-    apt-get install -q -y oracle-java8-installer --fix-missing
+    #apt-get update
+    #apt-get install -y git
+    #add-apt-repository ppa:webupd8team/java
+    #apt-get update
+    #echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections && echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
+    #apt-get install -q -y oracle-java8-installer --fix-missing
     #puppet module install puppetlabs/vcsrepo
     #puppet module install puppetlabs/apt
   SHELL

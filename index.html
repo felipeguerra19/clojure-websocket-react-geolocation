@@ -1,6 +1,7 @@
 <!DOCTYPE html>
   <meta charset="utf-8" />
   <title>WebSocket Test</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script language="javascript" type="text/javascript">
 
   var wsUri = "ws://localhost:8002/geolocation/async";
@@ -24,7 +25,7 @@
   function onOpen(evt)
   {
     writeToScreen("CONNECTED");
-    doSend("WebSocket rocks");
+    //doSend("WebSocket rocks");
   }
 
   function onClose(evt)
@@ -58,7 +59,12 @@
   }
   
   function trySendMessage() {
-    doSend(document.getElementById("mensagem").value);
+    var jSonMessage = '{"source-lng":' + document.getElementById("source-lgt").value + ', ';  
+        jSonMessage += '"source-lat":' + document.getElementById("source-lat").value + ', ';
+        jSonMessage += '"to-lng":' + document.getElementById("to-lgt").value + ', ';
+        jSonMessage += '"to-lat":' + document.getElementById("to-lat").value + '}';
+    
+    doSend(jSonMessage);
   }
 
   window.addEventListener("load", init, false);
@@ -70,6 +76,9 @@
   <div id="output"></div>
   
   <h2>WebSocket Message: </h2>
-  <input type="text" id="mensagem" />
+  <span>Ltd (Source):</span><input type="text" id="source-lat" size="15"/>
+  <span>Lgt (Source):</span><input type="text" id="source-lgt" size="15" /><br /><br />
+  <span>Ltd (To):</span><input type="text" id="to-lat" size="15" />
+  <span>Lgt (To):</span><input type="text" id="to-lgt" size="15" />
   <input type="button" id="enviar" value="Send" onclick="trySendMessage()" />
   
