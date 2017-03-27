@@ -190,10 +190,10 @@ O deploy foi feito utilizando a estrutura do GitHub hospedada no Heroku, o que p
 ![Teste](doc/heroku-deploy-success.png)
 
 A seguinte URL está disponível para testes via HTTP (Síncrono):
-
+```
 **host**: https://clojure-react-ws-geolocation.herokuapp.com
 **resource**: /geolocation/calculate-distance/<source-longitude>/<source-latitude>/<to-longitude>/<to-latitude>
-
+```
 Ex.:
 ```
 https://clojure-react-ws-geolocation.herokuapp.com/geolocation/calculate-distance/-23.521398/-46.691071/-23.529398/-46.692071
