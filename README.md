@@ -179,3 +179,8 @@ Muitas *Startups* que começam a entregar soluções de software de maneira ági
 utilizam IAAS/PAAS para começar com uma versão sem custos e ir escalando a medida que a utilização do aplicativo comece a crescer. 
 
 ### Heroku ###
+Nesse exemplo, hospedamos nosso *microservice* no [Heroku](https://devcenter.heroku.com/articles/using-websockets-on-heroku-with-clojure-and-immutant) pra realizarmos testes de unidade e de performance.
+
+Nesse [material](https://devcenter.heroku.com/start), é possível entender como começar com uma versão free no Heroku.
+
+Para realizar o deploy no serviço de PAAS do Heroku, é necessário criar o seguinte arquivo [Procfile](Procfile).
