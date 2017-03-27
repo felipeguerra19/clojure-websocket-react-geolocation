@@ -28,8 +28,28 @@ Com a Imutabilidade de Clojure isso se torna factível.
 
 A sugestão de IDE é o **counterclockwise-0.35.0**, mas sinta-se  à vontade para utilizar outras!
 
+### Build ####
+
+Uma vez que o *clone* do projeto foi feito em sua máquina, com o devido *setup* realizado, navegue até a raíz do projeto e execute:
+```
+lein repl
+
+nREPL server started on port 51716 on host 127.0.0.1 - nrepl://127.0.0.1:51716
+REPL-y 0.3.7, nREPL 0.2.12
+Clojure 1.6.0
+Java HotSpot(TM) 64-Bit Server VM 1.8.0_121-b13
+    Docs: (doc function-name-here)
+          (find-doc "part-of-name-here")
+  Source: (source function-name-here)
+ Javadoc: (javadoc java-object-or-class-here)
+    Exit: Control+D or (exit) or (quit)
+ Results: Stored in vars *1, *2, *3, an exception in *e
+
+br.com.reactive-poc.rest-service=>
+```
+
 ## DevOps ##
 
-Para acelerar o processe de estudo desse exemplo, disponibilizo um arquivo [Vagrantfile](Vagrantfile) com os recursos necessários para rodar o projeto em uma máquina virtual.
+Para acelerar o processo de estudo desse exemplo, disponibilizo um arquivo [Vagrantfile](Vagrantfile) com os recursos necessários para rodar o projeto em uma máquina virtual.
 
 
