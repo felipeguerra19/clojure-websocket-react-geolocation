@@ -28,6 +28,83 @@ Com a Imutabilidade de Clojure isso se torna factível.
 
 A sugestão de IDE é o **counterclockwise-0.35.0**, mas sinta-se  à vontade para utilizar outras!
 
+### Test ###
+Escrever testes de unidade, integração e funcionais em Clojure é muito simples. Nesse projeto, execute o seguinte comando para validar os testes de unidade:
+
+```
+lein test
+
+lein test br.com.reactive-poc.rest-service-test
+"Elapsed time: 3.071663 msecs"
+{"result":1540.6100747499536}
+
+lein test :only br.com.reactive-poc.rest-service-test/test-request-success
+
+ERROR in (test-request-success) (Numbers.java:227)
+Test JSON message request with success
+expected: (> result 0.0)
+  actual: java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Number
+ at clojure.lang.Numbers.gt (Numbers.java:227)
+    clojure.core$_GT_.invoke (core.clj:1036)
+    clojure.lang.AFn.applyToHelper (AFn.java:156)
+    clojure.lang.RestFn.applyTo (RestFn.java:132)
+    clojure.core$apply.invoke (core.clj:624)
+    br.com.reactive_poc.rest_service_test/fn (rest_service_test.clj:30)
+    clojure.test$test_var$fn__7187.invoke (test.clj:704)
+    clojure.test$test_var.invoke (test.clj:704)
+    clojure.test$test_vars$fn__7209$fn__7214.invoke (test.clj:722)
+    clojure.test$default_fixture.invoke (test.clj:674)
+    clojure.test$test_vars$fn__7209.invoke (test.clj:722)
+    clojure.test$default_fixture.invoke (test.clj:674)
+    clojure.test$test_vars.invoke (test.clj:718)
+    clojure.test$test_all_vars.invoke (test.clj:728)
+    clojure.test$test_ns.invoke (test.clj:747)
+    user$eval85$fn__136.invoke (form-init7361099933128776754.clj:1)
+    clojure.lang.AFn.applyToHelper (AFn.java:156)
+    clojure.lang.AFn.applyTo (AFn.java:144)
+    clojure.core$apply.invoke (core.clj:626)
+    leiningen.core.injected$compose_hooks$fn__19.doInvoke (form-init7361099933128776754.clj:1)
+    clojure.lang.RestFn.applyTo (RestFn.java:137)
+    clojure.core$apply.invoke (core.clj:624)
+    leiningen.core.injected$run_hooks.invoke (form-init7361099933128776754.clj:1)
+    leiningen.core.injected$prepare_for_hooks$fn__24$fn__25.doInvoke (form-init7361099933128776754.clj:1)
+    clojure.lang.RestFn.applyTo (RestFn.java:137)
+    clojure.lang.AFunction$1.doInvoke (AFunction.java:29)
+    clojure.lang.RestFn.invoke (RestFn.java:408)
+    clojure.core$map$fn__4245.invoke (core.clj:2559)
+    clojure.lang.LazySeq.sval (LazySeq.java:40)
+    clojure.lang.LazySeq.seq (LazySeq.java:49)
+    clojure.lang.Cons.next (Cons.java:39)
+    clojure.lang.RT.boundedLength (RT.java:1654)
+    clojure.lang.RestFn.applyTo (RestFn.java:130)
+    clojure.core$apply.invoke (core.clj:626)
+    clojure.test$run_tests.doInvoke (test.clj:762)
+    clojure.lang.RestFn.applyTo (RestFn.java:137)
+    clojure.core$apply.invoke (core.clj:624)
+    user$eval85$fn__148$fn__179.invoke (form-init7361099933128776754.clj:1)
+    user$eval85$fn__148$fn__149.invoke (form-init7361099933128776754.clj:1)
+    user$eval85$fn__148.invoke (form-init7361099933128776754.clj:1)
+    user$eval85.invoke (form-init7361099933128776754.clj:1)
+    clojure.lang.Compiler.eval (Compiler.java:6703)
+    clojure.lang.Compiler.eval (Compiler.java:6693)
+    clojure.lang.Compiler.load (Compiler.java:7130)
+    clojure.lang.Compiler.loadFile (Compiler.java:7086)
+    clojure.main$load_script.invoke (main.clj:274)
+    clojure.main$init_opt.invoke (main.clj:279)
+    clojure.main$initialize.invoke (main.clj:307)
+    clojure.main$null_opt.invoke (main.clj:342)
+    clojure.main$main.doInvoke (main.clj:420)
+    clojure.lang.RestFn.invoke (RestFn.java:421)
+    clojure.lang.Var.invoke (Var.java:383)
+    clojure.lang.AFn.applyToHelper (AFn.java:156)
+    clojure.lang.Var.applyTo (Var.java:700)
+    clojure.main.main (main.java:37)
+
+Ran 4 tests containing 4 assertions.
+0 failures, 1 errors.
+Tests failed.
+```
+
 ### Build ####
 
 Uma vez que o *clone* do projeto foi feito em sua máquina, com o devido *setup* realizado, navegue até a raíz do projeto e execute:
