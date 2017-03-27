@@ -184,3 +184,6 @@ Nesse exemplo, hospedamos nosso *microservice* no [Heroku](https://devcenter.her
 Nesse [material](https://devcenter.heroku.com/start), é possível entender como começar com uma versão free no Heroku.
 
 Para realizar o deploy no serviço de PAAS do Heroku, é necessário criar o seguinte arquivo [Procfile](Procfile).
+
+O deploy foi feito utilizando a estrutura do GitHub hospedada no Heroku, o que permite criar técnicas de *Delivery Continuous*.
+![Teste](doc/heroku-deploy-success.png)
