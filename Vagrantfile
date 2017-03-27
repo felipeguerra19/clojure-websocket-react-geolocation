@@ -56,7 +56,7 @@ Vagrant.configure("2") do |config|
     # Customize the amount of memory on the VM:
     vb.memory = "1024"
   end
-  #
+  
   # View the documentation for the provider you are using for more
   # information on available options.
 
@@ -71,14 +71,22 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    #apt-get update
-    #apt-get install -y git
-    #add-apt-repository ppa:webupd8team/java
-    #apt-get update
-    #echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections && echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
-    #apt-get install -q -y oracle-java8-installer --fix-missing
-    #puppet module install puppetlabs/vcsrepo
-    #puppet module install puppetlabs/apt
+    apt-get update
+    apt-get install -y git
+    add-apt-repository ppa:webupd8team/java
+    apt-get update
+    echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections && echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
+    apt-get install -q -y oracle-java8-installer --fix-missing
+    
+    #Heroku CLI
+    apt-get install software-properties-common
+    add-apt-repository "deb https://cli-assets.heroku.com/branches/stable/apt ./"
+    curl -L https://cli-assets.heroku.com/apt/release.key | sudo apt-key add -
+    apt-get update
+    sudo apt-get install heroku
+    
+    puppet module install puppetlabs/vcsrepo
+    puppet module install puppetlabs/apt
   SHELL
   
   config.vm.provision "puppet" do |puppet|

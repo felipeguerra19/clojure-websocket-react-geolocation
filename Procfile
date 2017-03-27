@@ -1,0 +1,1 @@
+web: java $JVM_OPTS -jar target/clojure-websocket-react-geolocation-1.0.0-SNAPSHOT-standalone.jar host 0.0.0.0 port $PORT
