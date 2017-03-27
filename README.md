@@ -186,4 +186,15 @@ Nesse [material](https://devcenter.heroku.com/start), é possível entender como
 Para realizar o deploy no serviço de PAAS do Heroku, é necessário criar o seguinte arquivo [Procfile](Procfile).
 
 O deploy foi feito utilizando a estrutura do GitHub hospedada no Heroku, o que permite criar técnicas de *Delivery Continuous*.
+
 ![Teste](doc/heroku-deploy-success.png)
+
+A seguinte URL está disponível para testes via HTTP (Síncrono):
+
+**host**: https://clojure-react-ws-geolocation.herokuapp.com
+**resource**: /geolocation/calculate-distance/<source-longitude>/<source-latitude>/<to-longitude>/<to-latitude>
+
+Ex.:
+```
+https://clojure-react-ws-geolocation.herokuapp.com/geolocation/calculate-distance/-23.521398/-46.691071/-23.529398/-46.692071
+```
