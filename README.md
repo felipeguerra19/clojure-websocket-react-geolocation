@@ -173,4 +173,9 @@ Saving to: '-46.692071'
 
 Para acelerar o processo de estudo desse exemplo, disponibilizo um arquivo [Vagrantfile](Vagrantfile) com os recursos necessários para rodar o projeto em uma máquina virtual.
 
+## Cloud Computing ##
+A facilidade de criar um aplicativo *Fullstack* ou mesmo um *microservice* em uma nuvem pública hoje é inquestionável.
+Muitas *Startups* que começam a entregar soluções de software de maneira ágil e contínua, 
+utilizam IAAS/PAAS para começar com uma versão sem custos e ir escalando a medida que a utilização do aplicativo comece a crescer. 
 
+### Heroku ###
