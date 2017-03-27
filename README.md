@@ -23,8 +23,13 @@ Com a Imutabilidade de Clojure isso se torna factível.
 
 É necessário os seguintes pré-requisitos para realizar o build & deploy da aplicação:
 
-* [JDK 8+] (http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 
-* [Leiningen] (https://leiningen.org/)
+* [JDK 8+](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 
+* [Leiningen](https://leiningen.org/)
 
 A sugestão de IDE é o **counterclockwise-0.35.0**, mas sinta-se  à vontade para utilizar outras!
+
+## DevOps ##
+
+Para acelerar o processe de estudo desse exemplo, disponibilizo um arquivo [Vagrantfile](Vagrantfile) com os recursos necessários para rodar o projeto em uma máquina virtual.
+
 
