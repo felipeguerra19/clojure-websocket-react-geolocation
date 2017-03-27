@@ -75,5 +75,5 @@
   (web/run
     (-> routes
       (web-middleware/wrap-session {:timeout 10}))
-    (merge {"host" (env :app-host), "port" (env :app-port), "path" "/geolocation"} args))
+    (merge {"host" (env :app-host), "port" (env :app-async-port), "path" "/geolocation"} args))
 )

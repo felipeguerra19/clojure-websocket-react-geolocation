@@ -47,6 +47,50 @@ Java HotSpot(TM) 64-Bit Server VM 1.8.0_121-b13
 
 br.com.reactive-poc.rest-service=>
 ```
+O projeto está pronto para ser executado:
+
+```
+lein run
+
+...
+
+14:06:13.195 INFO  [org.xnio] (main) XNIO version 3.3.6.Final
+14:06:13.211 INFO  [org.xnio.nio] (main) XNIO NIO Implementation Version 3.3.6.Final
+14:06:13.378 INFO  [org.projectodd.wunderboss.web.Web] (main) Registered web context /geolocation/async
+14:06:13.384 INFO  [org.projectodd.wunderboss.web.Web] (main) Registered web context /geolocation
+```
+
+Para gerar o **.jar** do projeto basta executar o comando abaixo:
+```
+lein uberjar
+...
+Compiling br.com.reactive-poc.rest-service
+Created /app/src/target/clojure-websocket-react-geolocation-1.0.0-SNAPSHOT.jar
+Created /app/src/target/clojure-websocket-react-geolocation-1.0.0-SNAPSHOT-standalone.jar
+```
+
+Verifique se o **.jar** criado está funcional:
+```
+java -jar target/clojure-websocket-react-geolocation-1.0.0-SNAPSHOT-standalone.jar host 0.0.0.0 port 8001
+...
+14:13:47.171 INFO  [org.xnio] (main) XNIO version 3.3.6.Final
+14:13:47.199 INFO  [org.xnio.nio] (main) XNIO NIO Implementation Version 3.3.6.Final
+14:13:47.490 INFO  [org.projectodd.wunderboss.web.Web] (main) Registered web context /geolocation/async
+14:13:47.494 INFO  [org.projectodd.wunderboss.web.Web] (main) Registered web context /geolocation
+```
+
+Utilizando o cURL/WGET, realize um teste do *end-point*:
+```
+wget "http://localhost:8001/geolocation/calculate-distance/-23.521398/-46.691071/-23.529398/-46.692071"
+
+
+--2017-03-27 14:16:19--  http://localhost:8001/geolocation/calculate-distance/-23.521398/-46.691071/-23.529398/-46.692071
+Resolving localhost (localhost)... 127.0.0.1
+Connecting to localhost (localhost)|127.0.0.1|:8001... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 17
+Saving to: '-46.692071'
+```
 
 ## DevOps ##
 
